@@ -1,9 +1,8 @@
 {
-  "name": "project-wordle",
-  "version": "1.0.0",
-  "description": "wordle game with react",
-  "main": "index.js",
-  "repository": "https://github.com/mikester380/project-wordle.git",
-  "author": "mikestaarr <mhykhelofficial@gmail.com>",
-  "license": "MIT"
+    "name": "word-game",
+    "version": "1.0.0",
+    "description": "wordle game with react",
+    "main": "index.js",
+    "repository": "https://github.com/mikester380/project-wordle.git",
+    "author": "mikestaarr <mhykhelofficial@gmail.com>"
 }
