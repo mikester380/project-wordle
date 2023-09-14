@@ -15,5 +15,12 @@
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "rimraf": "^5.0.1"
-    }
+    },
+    "scripts": {
+        "prevdev": "rimraf .parcel-cache dist",
+        "dev": "parcel public/index.html",
+        "build": "parcel build public/index.html",
+        "new-component": "new-component"
+    },
+    "browserlist": "> 0.5%, last 2 versions, not dead"
 }
