@@ -6,9 +6,15 @@ function Form(props) {
     function handleSubmit(event) {
         event.preventDefault();
 
-        const nextGuesses = [...props.guesses, guess];
-        props.setGuesses(nextGuesses);
+        const nextGuesses = [
+            ...props.guesses,
+            {
+                content: guess,
+                id: Math.random(),
+            },
+        ];
 
+        props.setGuesses(nextGuesses);
         setGuess("");
     }
 
