@@ -7,7 +7,11 @@ function Guesses(props) {
     const markup = (
         <div className="guess-results">
             {range(NUM_OF_GUESSES_ALLOWED).map((_, index) => (
-                <Guess guess={props.guesses[index]} key={index} />
+                <Guess
+                    guess={props.guesses[index]}
+                    key={index}
+                    answer={props.answer}
+                />
             ))}
         </div>
     );
