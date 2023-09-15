@@ -22,8 +22,8 @@ function Form(props) {
                 type="text"
                 id="guess-input"
                 required
-                minLength="5"
-                maxLength="5"
+                pattern="[a-zA-z]{5}"
+                title="5 letter words"
                 value={props.guess}
                 onChange={updateGuess}
             />
