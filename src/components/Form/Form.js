@@ -12,7 +12,7 @@ function Form(props) {
     }
 
     const markup = (
-        <form class="guess-input-wrapper" onSubmit={handleSubmit}>
+        <form className="guess-input-wrapper" onSubmit={handleSubmit}>
             <label htmlFor="guess-input">Enter guess:</label>
             <input
                 type="text"
