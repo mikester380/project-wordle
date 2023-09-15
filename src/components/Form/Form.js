@@ -1,18 +1,20 @@
 import React from "react";
 
 function Form(props) {
+    const [guess, setGuess] = React.useState("");
+
     function handleSubmit(event) {
         event.preventDefault();
 
-        const nextGuesses = [...props.guesses, props.guess];
+        const nextGuesses = [...props.guesses, guess];
         props.setGuesses(nextGuesses);
 
-        props.setGuess("");
+        setGuess("");
     }
 
     function updateGuess(event) {
-        const guess = event.target.value;
-        props.setGuess(guess.toUpperCase());
+        const nextGuess = event.target.value;
+        setGuess(nextGuess.toUpperCase());
     }
 
     const markup = (
@@ -24,7 +26,7 @@ function Form(props) {
                 required
                 pattern="[a-zA-z]{5}"
                 title="5 letter words"
-                value={props.guess}
+                value={guess}
                 onChange={updateGuess}
             />
         </form>
