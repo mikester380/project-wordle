@@ -4,15 +4,15 @@ function Form(props) {
     function handleSubmit(event) {
         event.preventDefault();
 
-        const nextGuesses = [...props.guesses, props.answer];
+        const nextGuesses = [...props.guesses, props.guess];
         props.setGuesses(nextGuesses);
 
-        props.setAnswer("");
+        props.setGuess("");
     }
 
-    function updateAnswer(event) {
-        const answer = event.target.value;
-        props.setAnswer(answer.toUpperCase());
+    function updateGuess(event) {
+        const guess = event.target.value;
+        props.setGuess(guess.toUpperCase());
     }
 
     const markup = (
@@ -23,8 +23,8 @@ function Form(props) {
                 id="guess-input"
                 minLength="5"
                 maxLength="5"
-                value={props.answer}
-                onChange={updateAnswer}
+                value={props.guess}
+                onChange={updateGuess}
             />
         </form>
     );

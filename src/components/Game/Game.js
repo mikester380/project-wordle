@@ -12,15 +12,15 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
-    const [answer, setAnswer] = React.useState("");
+    const [guess, setGuess] = React.useState("");
     const [guesses, setGuesses] = React.useState([]);
 
     return (
         <>
             <Guesses guesses={guesses} />
             <Form
-                answer={answer}
-                setAnswer={setAnswer}
+                guess={guess}
+                setGuess={setGuess}
                 guesses={guesses}
                 setGuesses={setGuesses}
             />
