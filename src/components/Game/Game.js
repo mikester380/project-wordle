@@ -3,8 +3,8 @@ import React from "react";
 import { sample } from "../../utils";
 import { WORDS } from "../../data";
 
-import Form from "../Form/Form";
-import Guesses from "../Guesses/Guesses";
+import Form from "../Form";
+import Guesses from "../Guesses";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
