@@ -17,6 +17,8 @@ function Form(props) {
             <input
                 type="text"
                 id="guess-input"
+                minLength="5"
+                maxLength="5"
                 value={props.answer}
                 onChange={updateAnswer}
             />
