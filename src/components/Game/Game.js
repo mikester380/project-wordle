@@ -5,19 +5,33 @@ import { WORDS } from "../../data";
 
 import Form from "../Form";
 import Guesses from "../Guesses";
+import WonBanner from "../WonBanner";
+import LostBanner from "../LostBanner";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
+
 // To make debugging easier, we'll log the solution in the console.
 console.info({ answer });
 
 function Game() {
     const [guesses, setGuesses] = React.useState([]);
+    const [won, setWon] = React.useState(false);
+    const [gameOver, setGameOver] = React.useState(false);
 
     return (
         <>
             <Guesses guesses={guesses} answer={answer} />
-            <Form guesses={guesses} setGuesses={setGuesses} />
+            <Form
+                guesses={guesses}
+                setGuesses={setGuesses}
+                setWon={setWon}
+                gameOver={gameOver}
+                setGameOver={setGameOver}
+                answer={answer}
+            />
+            {won && <WonBanner numOfGuesses={guesses.length} />}
+            {gameOver && !won && <LostBanner answer={answer} />}
         </>
     );
 }

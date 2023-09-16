@@ -1,4 +1,5 @@
 import React from "react";
+import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
 function Form(props) {
     const [guess, setGuess] = React.useState("");
@@ -7,8 +8,21 @@ function Form(props) {
         event.preventDefault();
 
         const nextGuesses = [...props.guesses, guess];
-
         props.setGuesses(nextGuesses);
+
+        const wonGame = guess === props.answer;
+        const maxGuesses = nextGuesses.length === NUM_OF_GUESSES_ALLOWED;
+
+        if (wonGame) {
+            props.setWon(true);
+            props.setGameOver(true);
+        }
+
+        if (!wonGame && maxGuesses) {
+            props.setWon(false);
+            props.setGameOver(true);
+        }
+
         setGuess("");
     }
 
@@ -28,6 +42,7 @@ function Form(props) {
                 title="5 letter words"
                 value={guess}
                 onChange={updateGuess}
+                disabled={props.gameOver}
             />
         </form>
     );

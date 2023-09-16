@@ -9,8 +9,8 @@ function Guesses(props) {
             {range(NUM_OF_GUESSES_ALLOWED).map((_, index) => (
                 <Guess
                     guess={props.guesses[index]}
-                    key={index}
                     answer={props.answer}
+                    key={index}
                 />
             ))}
         </div>
