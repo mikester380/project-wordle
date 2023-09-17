@@ -1,5 +1,6 @@
 import React from "react";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
+import { checkGuess } from "../../game-helpers";
 
 function Form(props) {
     const [guess, setGuess] = React.useState("");
@@ -9,6 +10,22 @@ function Form(props) {
 
         const nextGuesses = [...props.guesses, guess];
         props.setGuesses(nextGuesses);
+
+        const charsStatus = checkGuess(guess, props.answer);
+
+        const usedLetters = props.usedLetters.filter(function (usedLetter) {
+            let exists = false;
+            charsStatus.forEach(function (charStatus) {
+                if (usedLetter.letter === charStatus.letter) {
+                    exists = true;
+                }
+            });
+
+            return !exists;
+        });
+
+        const nextUsedLetters = [...usedLetters, ...charsStatus];
+        props.setUsedLetters(nextUsedLetters);
 
         const wonGame = guess === props.answer;
         const maxGuesses = nextGuesses.length === NUM_OF_GUESSES_ALLOWED;

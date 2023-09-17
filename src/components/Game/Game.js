@@ -5,6 +5,7 @@ import { WORDS } from "../../data";
 
 import Form from "../Form";
 import Guesses from "../Guesses";
+import Keyboard from "../Keyboard";
 import WonBanner from "../WonBanner";
 import LostBanner from "../LostBanner";
 
@@ -18,6 +19,7 @@ function Game() {
     const [guesses, setGuesses] = React.useState([]);
     const [won, setWon] = React.useState(false);
     const [gameOver, setGameOver] = React.useState(false);
+    const [usedLetters, setUsedLetters] = React.useState([]);
 
     return (
         <>
@@ -29,7 +31,10 @@ function Game() {
                 gameOver={gameOver}
                 setGameOver={setGameOver}
                 answer={answer}
+                usedLetters={usedLetters}
+                setUsedLetters={setUsedLetters}
             />
+            <Keyboard usedLetters={usedLetters} answer={answer} />
             {won && <WonBanner numOfGuesses={guesses.length} />}
             {gameOver && !won && <LostBanner answer={answer} />}
         </>
